@@ -6,10 +6,10 @@ const EventsTable = (props) => {
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:4000/api/teams/" + props.team + "/events")
+    fetch("http://localhost:4000/api/teams/" + props.team.teamId + "/events")
     .then(response => response.json())
     .then(result => setEvents(result))
-  }, [])
+  }, [props.team])
 
   return(
       <>

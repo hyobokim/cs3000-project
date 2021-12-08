@@ -12,10 +12,10 @@ const TeamsTable = (props) => {
     .then(result => setTeams(result))
   }, [])
 
-  const handleClick = (teamId) => {
+  const handleClick = (team) => {
     return (
         () => {
-            props.setTeam(teamId)
+            props.setTeam(team)
         }
     )
   };
@@ -35,7 +35,7 @@ const TeamsTable = (props) => {
                     return(
                         <tr>
                             <td>{team.teamName}</td>
-                            <td><Button onClick={handleClick(team.teamId)}>Select</Button></td>
+                            <td><Button onClick={handleClick(team)}>Select</Button></td>
                         </tr>)
                 })
             }

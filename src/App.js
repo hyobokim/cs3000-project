@@ -1,17 +1,12 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
-import HelloWorld from "./components/hello/hello";
-import APlayers from "./components/playersList";
-import BPlayers from "./components/playersList/b-players";
-import CPlayers from "./components/playersList/c-players";
-import Balks from "./components/playersList/balks";
+// import HelloWorld from "./components/hello/hello";
+// import APlayers from "./components/playersList";
+// import BPlayers from "./components/playersList/b-players";
+// import CPlayers from "./components/playersList/c-players";
+// import Balks from "./components/playersList/balks";
 import MainPage from "./components/mainPage";
-import TeamsTable from './components/mainPage/teamTable';
-import PlayersTable from './components/teamPage/playersTable';
-import CoachesTable from './components/teamPage/coachesTable';
-import {useState} from "react";
-import TournamentsTable from './components/teamPage/tournamentsTable';
-import EventsTable from './components/teamPage/eventsTable';
+
 
 function App() {
   return (

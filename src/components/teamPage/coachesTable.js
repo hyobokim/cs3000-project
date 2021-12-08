@@ -6,10 +6,10 @@ const CoachesTable = (props) => {
   const [coaches, setCoaches] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:4000/api/teams/" + props.team + "/coaches")
+    fetch("http://localhost:4000/api/teams/" + props.team.teamId + "/coaches")
     .then(response => response.json())
     .then(result => setCoaches(result))
-  }, [])
+  }, [props.team.teamId])
 
   return(
       <>

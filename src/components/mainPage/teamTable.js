@@ -1,4 +1,4 @@
-import Button from "@restart/ui/esm/Button";
+import { Button } from "react-bootstrap";
 import {useState, useEffect} from "react";
 import Table from "react-bootstrap/Table";
 
@@ -11,14 +11,6 @@ const TeamsTable = (props) => {
     .then(response => response.json())
     .then(result => setTeams(result))
   }, [])
-
-  const handleClick = (team) => {
-    return (
-        () => {
-            props.setTeam(team)
-        }
-    )
-  };
 
   return (
       <>
@@ -35,7 +27,7 @@ const TeamsTable = (props) => {
                     return(
                         <tr>
                             <td>{team.teamName}</td>
-                            <td><Button onClick={handleClick(team)}>Select</Button></td>
+                            <td><Button onClick={() => { props.setTeam(team) }}>Select</Button></td>
                         </tr>)
                 })
             }

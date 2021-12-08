@@ -1,11 +1,25 @@
-import { useEffect} from "react";
+import { useEffect, useState} from "react";
 import CoachesTable from "../teamPage/coachesTable";
 import EventsTable from "../teamPage/eventsTable";
 import PlayersTable from "../teamPage/playersTable";
 import TournamentsTable from "../teamPage/tournamentsTable";
+import TournamentPage from "../tournamentPage/tournamentPage";
 
 const TeamPage = (props) => {
-  useEffect(() => {}, [props.team])
+  const [tournament, setTournament] = useState({});
+  useEffect(() => {
+    setTournament({})
+  }, [props.team])
+
+  const renderTournament = () => {
+    if (tournament.eventId == null) {
+      return (<></>)
+    }
+
+    return (<TournamentPage team={props.team} tournament={tournament}/>)
+
+
+  }
 
 
   return (
@@ -18,7 +32,9 @@ const TeamPage = (props) => {
         <h2>Events</h2>
         <EventsTable team={props.team}/>
         <h2>Tournaments</h2>
-        <TournamentsTable team={props.team} setTournament={props.setTournament}/>
+        <TournamentsTable team={props.team} setTournament={setTournament}/>
+        <hr></hr>
+        {renderTournament()}
       </>
   )
 }

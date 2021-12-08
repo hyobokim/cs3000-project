@@ -23,6 +23,7 @@ const PlayersTable = (props) => {
             <tr>
               <th>Player Name</th>
               <th>Number</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>

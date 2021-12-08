@@ -6,30 +6,19 @@ import BPlayers from "./components/playersList/b-players";
 import CPlayers from "./components/playersList/c-players";
 import Balks from "./components/playersList/balks";
 import MainPage from "./components/mainPage";
+import TeamsTable from './components/mainPage/teamTable';
+import PlayersTable from './components/teamPage/playersTable';
+import CoachesTable from './components/teamPage/coachesTable';
+import {useState} from "react";
+import TournamentsTable from './components/teamPage/tournamentsTable';
+import EventsTable from './components/teamPage/eventsTable';
 
 function App() {
   return (
       <div className="container">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
         <MainPage/>
-        <div className="row ">
-          <div className="col">
-            A Team:
-            <APlayers/>
-          </div>
-          <div className="col">
-            B Team:
-            <BPlayers/>
-          </div>
-          <div className="col">
-            C Team:
-            <CPlayers/>
-          </div>
-          <div className="col">
-            Balks:
-            <Balks/>
-          </div>
-        </div>
+
         {/*<div className="row">*/}
         {/*  <div className="col-sm">*/}
         {/*    col 1*/}

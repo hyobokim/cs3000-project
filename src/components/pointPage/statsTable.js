@@ -38,8 +38,8 @@ const StatsTable = (props) => {
                     console.log(stat)
                     return(<tr>
                         <td>{stat.name}</td>
-                        <td>{stat.pointScored}</td>
-                        <td>{stat.assist}</td>
+                        <td>{(stat.pointScored !== 0) ? "Yes" : "No"}</td>
+                        <td>{(stat.assist !== 0) ? "Yes" : "No"}</td>
                         <td>{stat.blocks}</td>
                         <td>{stat.completions}</td>
                         <td>{stat.catches}</td>

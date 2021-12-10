@@ -1,9 +1,11 @@
 import {useState, useEffect} from "react";
 import Table from "react-bootstrap/Table";
-import { Button } from "react-bootstrap";
+import CreateButton from "../teamPage/Buttons/playerPoints/createButton";
+import UpdateButton from "../teamPage/Buttons/playerPoints/updateButton";
 
 const StatsTable = (props) => {
 
+  const [test, setTest] = useState(false);
   const [stats, setStats] = useState([]);
 
   useEffect(() => {
@@ -11,12 +13,13 @@ const StatsTable = (props) => {
         "/games/" + props.game.gameId + "/points/" + props.point.pointId + "/stats")
     .then(response => response.json())
     .then(result => setStats(result))
-  }, [props.team, props.tournament, props.game, props.point.pointId])
+  }, [props.team, props.tournament, props.game, props.point.pointId, test])
 
 
 
   return(
       <>
+        <CreateButton team={props.team} tournament={props.tournament} game={props.game} point={props.point} stats={stats} setStats={setStats}/>
         <Table striped bordered hover>
           <thead>
             <tr>
@@ -40,7 +43,8 @@ const StatsTable = (props) => {
                         <td>{stat.blocks}</td>
                         <td>{stat.completions}</td>
                         <td>{stat.catches}</td>
-                        <td></td>
+                        <td><UpdateButton test={test} setTest={setTest} team={props.team} tournament={props.tournament} game={props.game} setTeam={props.setTeam}
+                                          point={props.point} stat={stat} stats={stats} setStats={setStats} name={stat.name}/></td>
                     </tr>)
                 })
             }

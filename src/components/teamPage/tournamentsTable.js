@@ -1,6 +1,8 @@
 import { Button } from "react-bootstrap";
 import {useState, useEffect} from "react";
 import Table from "react-bootstrap/Table";
+import CreateButton from "./Buttons/tournamentsList/createButton";
+import DeleteButton from "./Buttons/tournamentsList/deleteButton";
 
 const TournamentsTable = (props) => {
 
@@ -15,6 +17,7 @@ const TournamentsTable = (props) => {
 
   return(
       <>
+        <CreateButton team={props.team} setEvents={setEvents} events={events}/>
         <Table striped bordered hover>
           <thead>
             <tr>
@@ -28,7 +31,10 @@ const TournamentsTable = (props) => {
                     .map(tournament => {
                         return(<tr>
                             <td>{tournament.eventName}</td>
-                          <td><td><Button onClick={() => { props.setTournament(tournament) }}>Select</Button></td></td>
+                          <td>
+                            <td><Button onClick={() => { props.setTournament(tournament) }}>Select</Button></td>
+                            <td><DeleteButton team={props.team} events={events} event={tournament} setEvents={setEvents}/></td>
+                          </td>
                         </tr>)
                     })
             }

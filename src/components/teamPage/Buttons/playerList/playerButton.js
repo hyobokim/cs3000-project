@@ -12,7 +12,13 @@ const PlayerButton = (props) => {
   const [nuid, setNUID] = useState([]);
   const [coach, setCoach] = useState(0)
 
-  const handleClose = () => {setShow(false)};
+  const handleClose = () => {
+    setShow(false);
+    setName("");
+    setNumber([]);
+    setNUID([]);
+    setCoach(0);
+  };
   const handleShow = () => {setShow(true)};
   const handleCreate = () => {
     fetch("http://localhost:4000/api/teams/" + props.team.teamId + "/players", {

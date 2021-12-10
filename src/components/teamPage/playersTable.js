@@ -1,7 +1,7 @@
 import {useState, useEffect} from "react";
 import Table from "react-bootstrap/Table";
-import PlayerButton from "./playerButton";
-import DeleteButton from "./deleteButton";
+import PlayerButton from "./Buttons/playerList/playerButton";
+import DeleteButton from "./Buttons/playerList/deleteButton";
 
 const PlayersTable = (props) => {
 

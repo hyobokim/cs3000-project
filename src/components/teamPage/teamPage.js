@@ -29,8 +29,6 @@ const TeamPage = (props) => {
         <CoachesTable team={props.team}/>
         <h2>Roster</h2>
         <PlayersTable team={props.team}/>
-        <h2>Events</h2>
-        <EventsTable team={props.team}/>
         <h2>Tournaments</h2>
         <TournamentsTable team={props.team} setTournament={setTournament}/>
         <hr></hr>

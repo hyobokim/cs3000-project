@@ -1,6 +1,8 @@
 import {useState, useEffect} from "react";
 import Table from "react-bootstrap/Table";
 import { Button } from "react-bootstrap";
+import CreateButton from "../teamPage/Buttons/points/createButton";
+import DeleteButton from "../teamPage/Buttons/points/deleteButton";
 
 const PointsTable = (props) => {
 
@@ -17,6 +19,7 @@ const PointsTable = (props) => {
 
   return(
       <>
+        <CreateButton team={props.team} tournament={props.tournament} game={props.game} points={points} setPoints={setPoints}/>
         <Table striped bordered hover>
           <thead>
             <tr>
@@ -33,7 +36,14 @@ const PointsTable = (props) => {
                         <td>{(point.oLine === 1) ? "Yes" : "No"}</td>
                         <td>{(point.pointScored === 1) ? "Yes" : "No"}</td>
                         <td>{point.hScore}-{point.aScore}</td>
-                        <td><Button onClick={() => { props.setPoint(point) }}>Select</Button></td>
+                        <td>
+                          <td>
+                            <Button onClick={() => { props.setPoint(point) }}>Select</Button>
+                          </td>
+                          <td>
+                            <DeleteButton team={props.team} event={props.tournament} game={props.game} point={point} points={points} setPoints={setPoints}/>
+                          </td>
+                        </td>
                     </tr>)
                 })
             }

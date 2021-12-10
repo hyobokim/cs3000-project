@@ -1,6 +1,8 @@
 import {useState, useEffect} from "react";
 import Table from "react-bootstrap/Table";
 import { Button } from "react-bootstrap";
+import CreateButton from "../teamPage/Buttons/gamesList/createButton";
+import DeleteButton from "../teamPage/Buttons/gamesList/deleteButton";
 
 const GamesTable = (props) => {
 
@@ -16,6 +18,7 @@ const GamesTable = (props) => {
 
   return(
       <>
+        <CreateButton games={games} team={props.team} tournament={props.tournament} setGames={setGames}/>
         <Table striped bordered hover>
           <thead>
             <tr>
@@ -32,7 +35,10 @@ const GamesTable = (props) => {
                         <td>{game.opponent}</td>
                         <td>{game.finalScoreNEU}</td>
                         <td>{game.finalScoreOpp}</td>
-                        <td><Button onClick={() => { props.setGame(game) }}>Select</Button></td>
+                        <td>
+                          <td><Button onClick={() => { props.setGame(game) }}>Select</Button></td>
+                          <td><DeleteButton setGames={setGames} games={games} game={game} team={props.team} tournament={props.tournament}/></td>
+                        </td>
                     </tr>)
                 })
             }

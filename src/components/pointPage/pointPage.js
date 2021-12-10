@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import StatsTable from "./statsTable";
+import CreateButton from "../teamPage/Buttons/points/createButton";
 
 const PointPage = (props) => {
 

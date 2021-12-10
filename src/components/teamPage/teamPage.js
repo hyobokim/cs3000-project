@@ -25,8 +25,6 @@ const TeamPage = (props) => {
   return (
       <>
         <h1>{props.team.teamName}</h1>
-        <h2>Coaches</h2>
-        <CoachesTable team={props.team}/>
         <h2>Roster</h2>
         <PlayersTable team={props.team}/>
         <h2>Tournaments</h2>
